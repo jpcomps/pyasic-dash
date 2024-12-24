@@ -41,12 +41,6 @@ class MinerTableData(BaseModel):
             return round(float(value), 2)
         return None
 
-    @field_serializer("ip")
-    def ip(self, value: str | None) -> str | None:
-        if value is not None:
-            return f'<a href="http://{value}" target="_blank">{value}</a>'
-        return None
-
     @field_serializer("hashboard_1")
     def serialize_hashboard_1(self, value: AlgoHashRateType | None) -> float | None:
         if value is not None:
